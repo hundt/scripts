@@ -12,8 +12,9 @@ if len(sys.argv) != 2:
 observer = Observer()
 
 def callback(args):
+    print args
     subprocess.call([sys.argv[1] + '/bin/searchfe.sh', 'less'])
 
-stream = Stream(callback, sys.argv[1], file_events=True)
+stream = Stream(callback, sys.argv[1] + '/al/marbury/less', file_events=True)
 observer.schedule(stream)
 observer.run()
